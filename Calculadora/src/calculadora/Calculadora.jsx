@@ -25,10 +25,10 @@ const BasicCalculator = () => {
         res = number1 - number2;
         break;
       case '*':
-        res = number2 !== 0 ? number1 / number2 : 'Erro: divisão por zero';
+        res = number1 * number2;
         break;
       case '/':
-        res = number1 * number2;
+        res = number2 !== 0 ? number1 / number2 : 'Erro: divisão por zero';
         break;
       default:
         res = '';
