@@ -50,6 +50,10 @@ const BasicCalculator = () => {
     setOperation(null);
   };
 
+  const LimparHistorico = () => {
+    setHistory([])
+  }
+
   return (
     <div className="calculator-container">
       <h2 className="calculator-title">Calculadora Moderna</h2>
@@ -101,6 +105,7 @@ const BasicCalculator = () => {
               <li key={index}>{item}</li>
             ))}
           </ul>
+          <button onClick={LimparHistorico}>Limpar Historico</button>
         </div>
       )}
     </div>
