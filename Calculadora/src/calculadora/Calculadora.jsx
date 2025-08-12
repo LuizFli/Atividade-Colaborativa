@@ -6,6 +6,7 @@ const BasicCalculator = () => {
   const [num2, setNum2] = useState('');
   const [result, setResult] = useState('');
   const [operation, setOperation] = useState(null);
+  const [history, setHistory] = useState([]);
 
   const calculate = (op) => {
     const number1 = parseFloat(num1);
@@ -36,6 +37,10 @@ const BasicCalculator = () => {
 
     setResult(res);
     setOperation(op);
+    // Adiciona ao histórico
+    const newHistoryItem = `${number1} ${op} ${number2} = ${res}`;
+    setHistory(prev => [newHistoryItem, ...prev].slice(0, 5)); // Mantém apenas as últimas 5 operações
+ 
   };
 
   const clearAll = () => {
@@ -86,6 +91,17 @@ const BasicCalculator = () => {
         <p className="operation-display">
           Operação: {num1} {operation} {num2} = {result}
         </p>
+      )}
+      {/* Novo: Exibição do histórico */}
+      {history.length > 0 && (
+        <div className="history-container">
+          <h3>Histórico:</h3>
+          <ul className="history-list">
+            {history.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );
