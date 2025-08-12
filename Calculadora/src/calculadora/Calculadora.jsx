@@ -19,10 +19,10 @@ const BasicCalculator = () => {
     let res;
     switch (op) {
       case '+':
-        res = number1 - number2;
+        res = number1 + number2;
         break;
       case '-':
-        res = number1 + number2;
+        res = number1 - number2;
         break;
       case '*':
         res = number2 !== 0 ? number1 / number2 : 'Erro: divisão por zero';
